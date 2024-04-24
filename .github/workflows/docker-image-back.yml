@@ -27,8 +27,8 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v5
         with:
+          context: "{{defaultContext}}:back"
           push: true
-          context: ./back
           tags: |
-            username/package:latest
-            username/package:${{ github.sha }}
+            tarikly/andela-back:latest
+            tarikly/andela-back:${{ github.sha }}
