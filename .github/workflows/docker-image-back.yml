@@ -24,7 +24,7 @@ jobs:
        with:
           push: true
           context: ./back
-          file: ./Dockerfile
+          file: ./back/Dockerfile
           tags: |
             username/package:latest
             username/package:${{ github.sha }}
