@@ -41,7 +41,7 @@ jobs:
         uses: azure/k8s-set-context@v2
         with:
           method: service-account
-          k8s-url: ${{ secrets.KUBERNETES_API_URL }}
+          k8s-url: https://ec2-100-26-175-135.compute-1.amazonaws.com:6443/
           k8s-secret: ${{ secrets.KUBERNETES_SECRET }}
 
 
