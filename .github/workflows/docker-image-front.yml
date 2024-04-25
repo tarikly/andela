@@ -55,5 +55,3 @@ jobs:
           manifests: |
               deployment.yaml
           images: 'tarikly/andela-front:${{ github.sha }}'
-          imagepullsecrets: |
-              github-container-registry
