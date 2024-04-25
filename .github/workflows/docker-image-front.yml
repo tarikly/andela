@@ -53,5 +53,5 @@ jobs:
         with:
           namespace: 'andela'
           manifests: |
-              deployment.yaml
+              front/kubernetes/deployment.yaml
           images: 'tarikly/andela-front:${{ github.sha }}'
