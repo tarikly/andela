@@ -12,7 +12,7 @@ spec:
   template:
     metadata:
       labels:
-        app: andela-fromt
+        app: andela-front
     spec:
       containers:
         - name: andela-front
