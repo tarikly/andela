@@ -41,7 +41,7 @@ jobs:
         uses: azure/k8s-set-context@v2
         with:
           method: service-account
-          k8s-url: https://6443-port-63d3caf4b07442dc.labs.kodekloud.com
+          k8s-url: {{ secrets.KUBERNETES_API_URL }}
           k8s-secret: ${{ secrets.KUBERNETES_SECRET }}
 
 
