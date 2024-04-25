@@ -52,7 +52,7 @@ jobs:
         with:
           namespace: 'andela'
           manifests: |
-              kubernetes/deployment.yaml
+              back/kubernetes/deployment.yaml
           images: 'tarikly/andela-back:${{ github.sha }}'
           imagepullsecrets: |
               github-container-registry
