@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: andela-back
+  labels:
+    app: andela-back
+spec:
+  replicas: 1  # Adjust the number of replicas as needed
+  selector:
+    matchLabels:
+      app: andela-back
+  template:
+    metadata:
+      labels:
+        app: andela-back
+    spec:
+      containers:
+        - name: andela-back
+          image: tarikly/andela-back
+          ports:
+            - containerPort: 3000
+      imagePullSecrets:
+        - name: github-container-registry
