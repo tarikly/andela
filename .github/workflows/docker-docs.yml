@@ -23,7 +23,7 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: "{{defaultContext}}:back"
+          context: "./back"
           push: true
           tags: |
             tarikly/andela-back:latest
