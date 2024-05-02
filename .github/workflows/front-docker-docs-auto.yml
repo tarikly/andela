@@ -1,4 +1,4 @@
-name: docker docs - auto
+name: front - docker docs - auto
 
 on:
   push:
@@ -30,3 +30,26 @@ jobs:
           tags: |
             tarikly/andela-front:latest
             tarikly/andela-front:${{ github.sha }}
+
+  deploy:
+    name: Deploy
+    needs: [ docker ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set the Kubernetes context
+        uses: azure/k8s-set-context@v2
+        with:
+          method: service-account
+          k8s-url: ${{ secrets.KUBERNETES_API_URL }}
+          k8s-secret: ${{ secrets.KUBERNETES_SECRET }}
+
+      - name: Checkout source code
+        uses: actions/checkout@v3
+
+      - uses: Azure/k8s-deploy@v5
+        with:
+          skip-tls-verify: true
+          namespace: 'andela'
+          manifests: |
+              front/kubernetes/deployment.yaml
+          images: 'tarikly/andela-front:${{ github.sha }}'
