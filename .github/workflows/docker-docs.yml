@@ -24,7 +24,6 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: "{{defaultContext}}:back"
-          file: ./Dockerfile
           push: true
           tags: |
             tarikly/andela-back:latest
